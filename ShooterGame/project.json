@@ -13,6 +13,11 @@
 
     "jsList" : [
         "src/resource.js",
-        "src/app.js"
+        "src/BackgroundLayer.js",
+        "src/Grandma.js",
+        "src/Zombie.js",
+        "src/ZombiesLayer.js",
+        "src/GameLayer.js",
+        "src/GameScene.js"
     ]
 }
