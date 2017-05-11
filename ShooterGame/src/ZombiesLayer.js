@@ -4,7 +4,7 @@ var ZombiesLayer = cc.Layer.extend({
     ctor: function ()
     {
         this._super();
-        this.schedule(this.addzombie, 3);
+        this.schedule(this.addzombie, 7);
         cc.log('string');
     },
     getRandomY: function () {

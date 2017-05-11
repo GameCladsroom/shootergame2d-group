@@ -14,23 +14,29 @@ var GameLayer = cc.Layer.extend({
         this.zombiesLayer = new ZombiesLayer();
         this.addChild(this.zombiesLayer);
 
+        this.scheduleUpdate();
+
         return true;
     },
     update: function (dt) {
+
         if (this.zombiesLayer.zombie!= null) {
             var zombox = this.zombiesLayer.zombie.getBoundingBox();
             if (zombox.x + zombox.width <= 100){
                 this.removeZomb();
             }
+
         }
 
 
 
         if (this.grandma != null && this.zombiesLayer.zombie!= null) {
-
             var box = this.grandma.getBoundingBox();
             var box1 = this.zombiesLayer.zombie.getBoundingBox();
             if (cc.rectIntersectsRect(box, box1)) {
+                cc.log(
+                    "cc"
+                );
                 this.grandma.removeFromParent();
                 this.grandma = null;
                 var helloLabel = new cc.LabelTTF("Game over!", "Calibi", 38);
