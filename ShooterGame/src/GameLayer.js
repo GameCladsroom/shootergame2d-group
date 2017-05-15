@@ -2,8 +2,13 @@
 var GameLayer = cc.Layer.extend({
     grandma: null,
     zombiesLayer: null,
+    score:0,
+    scoreLabel:null,
     ctor:function () {
         this._super();
+
+
+
 
         var background = new BackgroundLayer();
         this.addChild(background);
@@ -16,7 +21,15 @@ var GameLayer = cc.Layer.extend({
 
         this.scheduleUpdate();
 
+        this.scoreLabel = new cc.LabelTTF("SCORE:0","Arial",34 );
+        this.scoreLabel.x = cc.winSize.width/2;
+        this.scoreLabel.y = cc.winSize.height - this.scoreLabel.height;
+        this.addChild(this.scoreLabel);
+        this.scoreLabel.enableStroke(cc.color(0, 0, 0), 2);
+
         return true;
+
+
     },
     update: function (dt) {
 
@@ -51,7 +64,11 @@ var GameLayer = cc.Layer.extend({
     },
     removeZomb: function(){
         this.zombiesLayer.zombie.removeFromParent();
-        this.zombiesLayer.zombie = null;
+        if(this.grandma = null) {
+            this.zombiesLayer.zombie = null;
+            this.score++;
+        }
+        this.scoreLabel.string = "SCORE:"+this.score;
     }
 
 
