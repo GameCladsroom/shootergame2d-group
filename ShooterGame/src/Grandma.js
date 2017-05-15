@@ -4,6 +4,8 @@ var Grandma = cc.Sprite.extend({
     ctor: function () {
         this._super(res.GrandmaImage);
 
+        this.y = cc.winSize.height /2;
+
         var me = this;
         var keyboard_listener = cc.EventListener.create({
             event: cc.EventListener.KEYBOARD,
